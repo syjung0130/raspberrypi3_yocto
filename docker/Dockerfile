@@ -23,7 +23,16 @@ RUN apt-get install -y vim
 RUN apt-get install -y locales locales-all
 ENV LC_ALL en_US.UTF-8
 
+<<<<<<< HEAD
+RUN useradd -ms /bin/bash rpi
+USER rpi
+WORKDIR /home/rpi
+
+VOLUME /home/rpi
+WORKDIR /home/rpi
+=======
 VOLUME /workdir
 WORKDIR /workdir/rpi
+>>>>>>> f7a0a17a22129a3021a690fb6491d14cfbaa8fff
 
 CMD ["/bin/bash"]
