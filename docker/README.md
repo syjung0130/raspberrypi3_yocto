@@ -40,35 +40,3 @@ docker 설치 후 /var/run/docker.sock의 permission denied 발생하는 경우
   ##또는 chown 으로 group ownership 변경
   $sudo chown root:docker /var/run/docker.sock
   ~~~
-
-
-# cross compile(raspberry pi4)
- - Install the 32-bit Toolchain for a 32-bit Kernel
-~~~sh
-sudo apt install git bc bison flex libssl-dev make libc6-dev libncurses5-dev
-sudo apt-get install crossbuild-essential-armhf
-~~~
-
- - For Raspberry Pi 4 and 400, and Raspberry Pi Compute Module 4  
-~~~sh
-cd linux
-KERNEL=kernel7l
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2711_defconfig
-~~~
-
-# other
- - For Raspberry Pi 1, Zero and Zero W, and Raspberry Pi Compute Module 1:
-~~~sh
-cd linux
-KERNEL=kernel
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcmrpi_defconfig
-~~~
- - For Raspberry Pi 2, 3, 3+ and Zero 2 W, and Raspberry Pi Compute Modules 3 and 3+:
-~~~sh
-cd linux
-KERNEL=kernel7
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2709_defconfig
-~~~
-
- - Install the 64-bit Toolchain for a 64-bit Kernel
-sudo apt-get install crossbuild-essential-arm64
